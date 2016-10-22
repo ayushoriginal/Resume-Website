@@ -1,0 +1,44 @@
+Instructions :
+
+On Server :
+
+1. Install following Packages
+sudo apt-get install python python-pip
+sudo apt-get install mysql phpmyadmin
+sudo apt-get install apache2 libapache2-mod-wsgi apache2-utils
+sudo apt-get install rsync
+sudo apt-get install python-mysql
+sudo pip install django
+sudo pip install django-htmlmin
+
+2. Edit Apache COnfiguration - 443, Static, WSGI
+
+3. Configure SSL Certificate files
+
+4. Configure Django settings for production --*Keep Production Setting Away from MYSQL*--
+
+5. Enter Static Data linke project to the database server
+
+6. setup phpmyadmin, setup htpasswd for phpmyadmin for more security - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-12-04
+
+7. change password for VM Login, MySQl Server, Htaccess
+Change Links for PHPMyadmin
+
+8. During Production - take care of Manual match for base.html - google analytics code
+
+9. Change Secret Key
+10. Handle the Base.html Manually
+11. enable expires and headers using e2enmod
+12. Templates stuff deployement
+13. Take care of admin website
+
+Apache Modules to use while deployements-
+Pagespeed
+libapache2-modsecurity
+limitipconn
+https://www.digitalocean.com/community/tutorials/how-to-install-configure-and-use-modules-in-the-apache-web-server
+Digital ocean metafiles
+Configure apache status module
+
+Other Things:
+pip install virtualenv ----- extremely buggy with MySQL-python. Egg-Info error can be resolved with link

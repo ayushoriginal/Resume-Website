@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block meta_description %}Ashish Kedia's (ashish1294) Personal Website. My Blog ~ Coding, Technology, Music and Traveling {% endblock %}
+{% block title%}Ashish Kedia | Life of A Debugger  | Blog{% endblock %}
+{% load staticfiles %}
+{% block head %}
+    <style>
+        .blogtitle{
+            font-size: 25px;
+            color : black;
+        }
+        .post_entry{
+            padding-top: 22px;
+            padding-bottom: 19px;
+        }
+        .post_entry:hover {
+            background: rgba(255, 115, 115, 0.1);
+        }
+        .arrow {
+            -ms-transform: rotate(270deg); /* IE 9 */
+            -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+            transform: rotate(270deg);
+            position: absolute;
+            height: 32px;
+            top: 50%;
+            margin-top: -16px;
+            right: 20px;
+        }
+        .blogsubtitle {
+            margin-bottom: 0px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="subheader">
+        <div class="row">
+            <div class="twelve columns">
+                <p class="left">
+                     <a href='/'>Home</a> / <a href='/blog'>Life of A Debugger</a>
+                </p>
+                <p class="right">
+                     My Blog !
+                </p>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <h1 style="text-align: center; margin: auto;">
+            Life of A Debugger
+        </h1>
+        <hr style="margin-bottom: 0px;"/>
+        {% for post in post_list %}
+            <div class="twelve columns post_entry" onclick="location.href='/blog/{{post.template_file}}';" style="cursor:pointer;">
+                <div style="float:left;">
+                    <a href="/blog/{{post.template_file}}" title="{{post.title}}" class="blogtitle">{{post.title}}</a>
+                    {% if post.subtitle and post.subtitle != '' %}
+                        <p class="blogsubtitle"> {{post.subtitle}} </p>
+                    {% endif %}
+                    {% load tz%}
+                    {{post.time_added | localtime}}
+                </div>
+                <div style="float: right; height : 100%; vertical-align: middle;">
+                    <img src="{% static 'images/arrow.png' %}" class="arrow"/>
+                </div>
+            </div>
+            <hr style="margin-bottom: 0px;"/>
+        {% endfor %}
+    </div>
+    <br/><br/>
+    <div class="row">
+        To read a text version of all article via Google Docs <a href="https://docs.google.com/document/d/1Ak00kmdPN8FdsfcCkownTKG8nMJzjlWLSGXrnSB6u00/edit?usp=sharing" title="Life of a Debugger - Google Docs" target="_blank">click here</a>. You can comment and suggest in the text version.
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    
+{% endblock %}
